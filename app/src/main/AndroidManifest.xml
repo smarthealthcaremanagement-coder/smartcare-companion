@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.smartcare.companion">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.health.READ_HEART_RATE" />
+    <uses-permission android:name="android.permission.health.READ_OXYGEN_SATURATION" />
+    <uses-permission android:name="android.permission.health.READ_STEPS" />
+    <uses-permission android:name="android.permission.health.READ_SLEEP" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@android:drawable/ic_menu_myplaces"
+        android:label="SmartCare Companion"
+        android:roundIcon="@android:drawable/ic_menu_myplaces"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SmartCareCompanion"
+        android:usesCleartextTraffic="true"> <!-- Needed to hit localhost / 192.168.x.x without HTTPS -->
+
+        <!-- Login screen is the launcher (entry point) -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Main screen (Health Connect + Sync) -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+
+            <!-- Health Connect intent filter requirement -->
+            <intent-filter>
+                <action android:name="androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>
