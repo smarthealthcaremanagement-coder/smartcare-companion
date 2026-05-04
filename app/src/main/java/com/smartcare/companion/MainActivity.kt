@@ -148,7 +148,7 @@ class MainActivity : AppCompatActivity() {
             val url = URL("$backendUrl/api/vitals/sync")
             val conn = url.openConnection() as HttpURLConnection
             conn.requestMethod = "POST"
-            conn.setRequestProperty("Content-Type", "application/json; utf-8")
+            conn.setRequestProperty("Content-Type", "application/json")
             conn.setRequestProperty("Accept", "application/json")
             conn.setRequestProperty("Authorization", "Bearer $jwtToken")
             conn.connectTimeout = 10000

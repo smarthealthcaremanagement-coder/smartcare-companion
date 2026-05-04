@@ -93,7 +93,7 @@ class LoginActivity : AppCompatActivity() {
                 val url = URL("$serverUrl/api/auth/login")
                 val conn = url.openConnection() as HttpURLConnection
                 conn.requestMethod = "POST"
-                conn.setRequestProperty("Content-Type", "application/json; utf-8")
+                conn.setRequestProperty("Content-Type", "application/json")
                 conn.setRequestProperty("Accept", "application/json")
                 conn.connectTimeout = 10000
                 conn.readTimeout = 10000
